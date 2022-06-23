@@ -6,6 +6,7 @@ Add date: 2022-06-23 11:45:36
 <script setup lang="ts">
 
 interface getInterface {
+    id: number,
     text: string
 }
 
