@@ -5,18 +5,25 @@ Add date: 2022-06-23 11:45:36
 
 <script setup lang="ts">
 
-/*interface getInterface {
+interface getInterface {
     text: string
-}*/
+}
+
+const config = useRuntimeConfig()
 
 const { data: apiGet } = await useAsyncData(
     'api_get',
     () => $fetch('/api/test', {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            token: useRuntimeConfig().apiSecret
+        }
     })
 )
 
-const getText = apiGet.value.text;
+console.log(apiGet.value);
+
+const getText = (apiGet.value as getInterface).text
 console.log(getText)
 
 </script>
@@ -24,7 +31,7 @@ console.log(getText)
 <template>
     <div>
         Index oldal<br />
-        {{ apiGet.text }}<br />
+        {{ getText }}<br />
     </div>
 </template>
 
