@@ -11,5 +11,8 @@ export default defineEventHandler((event) => {
       id: 1,
       text: "valami szöveg",
     };
+  } else {
+    event.res.statusCode = 403;
+    return "";
   }
 });

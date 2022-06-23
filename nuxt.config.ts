@@ -4,8 +4,6 @@ import { defineNuxtConfig } from "nuxt";
 export default defineNuxtConfig({
   runtimeConfig: {
     apiSecret: "nagyontitkos",
-    public: {
-      apiBase: "salala", // Or a default value
-    },
+    public: {},
   },
 });

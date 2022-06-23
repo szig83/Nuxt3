@@ -12,7 +12,7 @@ interface getInterface {
 
 const config = useRuntimeConfig()
 
-const { data: apiGet } = await useAsyncData(
+const { data: apiGet, error: apiGetError } = await useAsyncData(
     'api_get',
     () => $fetch('/api/test', {
         method: 'GET',
@@ -22,17 +22,20 @@ const { data: apiGet } = await useAsyncData(
     })
 )
 
-console.log(apiGet.value);
+let datas = reactive({
+    text: ""
+});
 
-const getText = (apiGet.value as getInterface).text
-console.log(getText)
-
+if (!apiGetError.value) {
+    datas.text = (apiGet.value as getInterface).text
+    console.log(datas.text)
+}
 </script>
 
 <template>
     <div>
         Index oldal<br />
-        {{ getText }}<br />
+        {{ datas.text }}<br />
     </div>
 </template>
 
