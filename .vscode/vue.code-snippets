@@ -1,0 +1,31 @@
+{
+  "vue": {
+    "scope": "vue",
+    "prefix": "vue",
+    "body": [
+      "$BLOCK_COMMENT_START",
+      "Author: ${1:Szigeti}",
+      "Add date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      "$BLOCK_COMMENT_END",
+      "",
+      "<script setup lang=\"ts\">",
+      "</script>",
+      "",
+      "<template>",
+      "\t<div>",
+      "\t\t${2}",
+      "\t</div>",
+      "</template>",
+      "",
+      "<style scoped lang=\"scss\">",
+      "</style>"
+    ],
+    "description": "Vue alap szerkezet felépítés (script setup, typescript, scss)"
+  },
+  "arrow": {
+    "scope": "vue,javascript,typescript",
+    "prefix": ["arrow"],
+    "body": ["const ${1:f} = (${2:param}) => ({", "\t${3}", "});"],
+    "description": "Arrow function"
+  }
+}
